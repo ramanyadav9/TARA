@@ -1,2 +1,2 @@
 
-NEWS_API_KEY = "f52786f46dab4727a167c77429a55088"
+NEWS_API_KEY = "your_api_key"
