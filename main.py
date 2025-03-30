@@ -114,14 +114,12 @@ def main():
 
         # Get Latest News
         elif "news" in command or "headlines" in command:
-            speak("Fetching the latest news for you.")
-            headlines = tara.get_news_headlines()
-            
-            if headlines:
-                for headline in headlines:
-                    speak(headline)
-            else:
-                speak("Sorry, I couldn't fetch the news right now.")
+            speak("Fetching the latest news...")
+            news_list = tara.get_latest_news()
+
+            for news in news_list:
+                speak(news)
+
 
 
 

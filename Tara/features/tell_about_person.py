@@ -3,8 +3,6 @@ import wikipedia
 def get_person_info(person_name):
     """
     Fetch information about a person from Wikipedia.
-    :param person_name: Name of the person to search for.
-    :return: Summary (str) if found, error message (str) otherwise.
     """
     try:
         # Set language (optional)

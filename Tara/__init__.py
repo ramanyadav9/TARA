@@ -5,7 +5,7 @@ from Tara.features import datetime
 from Tara.features import youtube_search
 from Tara.features import google_search
 from Tara.features import tell_about_person
-from Tara.features import news
+from Tara.features.news import get_latest_news
 
 
 
@@ -59,23 +59,18 @@ class TaraAssistant:
     def tell_me_date(self):
         """
         Get the current date.
-        :return: Current date as a string.
         """
         return datetime.get_date()
 
     def tell_time(self):
         """
         Get the current time.
-        :return: Current time as a string.
         """
         return datetime.get_time()
     
     def search_on_youtube(self, query, search_type="video"):
         """
         Search or play content on YouTube.
-        :param query: Search term for YouTube.
-        :param search_type: "song" for music, "video" for general videos.
-        :return: True if successful, False otherwise.
         """
         return youtube_search.search_on_youtube(query, search_type)
 
@@ -85,24 +80,21 @@ class TaraAssistant:
     def search_on_google(self, query):
         """
         Perform a Google search.
-        :param query: The search query.
-        :return: True if successful, False if failed.
         """
         return google_search.search_on_google(query)
     
     def tell_about_person(self, person_name):
         """
-        Fetch and speak information about a person from Wikipedia.
-        :param person_name: Name of the person.
-        :return: Summary text.
+        Fetch and speak information about a person from Wikipedia. Summary text.
         """
         info = tell_about_person.get_person_info(person_name)
         self.tts(info)
         return info
     
 
-    def get_news_headlines(self):
+    def get_latest_news(self):
         """
-        Fetches and returns the latest news headlines.
+        fetch the news from the new api and give top 4 headlines 
         """
-        return news.get_news()
+
+        return get_latest_news()

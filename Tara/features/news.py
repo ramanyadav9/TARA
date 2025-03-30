@@ -1,28 +1,27 @@
 import requests
+from Tara.config import config
 
-def get_news():
+def get_latest_news():
     """
-    Fetches the top 4 latest news headlines.
-    :return: List of top 4 headlines or error message.
+    Fetches the latest news headlines using NewsAPI.
     """
     try:
-        # API call to NewsAPI
-        r = requests.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=f52786f46dab4727a167c77429a55088")
-        
-        if r.status_code == 200:
-            # Parse the JSON response
-            data = r.json()
-            # Get the articles and limit to top 4
-            articles = data.get("articles", [])[:4]
+        api_key = config.NEWS_API_KEY  # Import API key from config
+        url = f"https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}"
+
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            data = response.json()
+            articles = data.get("articles", [])[:4]  # Get top 4 news headlines
             
-            if not articles:
-                return ["No news articles found."]
-            
-            # Extracting titles
-            headlines = [article['title'] for article in articles]
-            return headlines
+            if articles:
+                news_list = [article["title"] for article in articles]
+                return news_list
+            else:
+                return ["No news available at the moment."]
         else:
-            return [f"Failed to fetch news. Status code: {r.status_code}"]
+            return ["Failed to fetch news. Please try again later."]
     
     except Exception as e:
-        return [f"Error fetching news: {str(e)}"]
+        return [f"Error: {str(e)}"]

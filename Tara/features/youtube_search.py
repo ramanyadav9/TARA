@@ -3,9 +3,6 @@ import webbrowser
 def search_on_youtube(query, search_type="video"):
     """
     Searches or plays a song on YouTube based on the given query.
-    :param query: The search query (e.g., "how to code in Python").
-    :param search_type: Type of search - "song" or "video".
-    :return: True if successful, False if failed.
     """
     try:
         # Construct the YouTube search URL

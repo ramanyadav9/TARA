@@ -3,8 +3,6 @@ import webbrowser
 def search_on_google(query):
     """
     Searches for a query on Google or opens a website if a URL is provided.
-    :param query: The search query or website name (e.g., "GitHub" or "open YouTube").
-    :return: True if successful, False if failed.
     """
     # if not query.strip():
     #     print("TARA: Please specify something to search for.")
