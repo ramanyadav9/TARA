@@ -136,7 +136,7 @@ def main():
                 speak(f"Fetching weather details for {city}.")
                 weather_report = tara.tell_weather(city)
                 speak(weather_report)
-                # print(weather_report)  # Optional: Display in console
+                print(weather_report)  # Optional: Display in console
             else:
                 speak("Sorry, I didn't catch the city name.")
 

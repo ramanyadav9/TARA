@@ -1,8 +1,5 @@
 import requests
-# from Tara.config import WEATHER_API_KEY
-# from config import 
-# 
-WEATHER_API_KEY = "65bcd1a9e6426bfacc863a4a92ccabcf"
+from Tara.config import WEATHER_API_KEY
 
 
 def get_weather(city):
