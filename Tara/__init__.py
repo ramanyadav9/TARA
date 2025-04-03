@@ -6,6 +6,8 @@ from Tara.features import youtube_search
 from Tara.features import google_search
 from Tara.features import tell_about_person
 from Tara.features.news import get_latest_news
+from Tara.features import tell_joke
+from Tara.features import weather
 
 
 
@@ -98,3 +100,20 @@ class TaraAssistant:
         """
 
         return get_latest_news()
+    
+    def get_joke(self):
+        """
+        Fetch and speak a joke.
+        """
+        return tell_joke.get_joke()
+    
+
+    def tell_weather(self, city):
+        """
+        Fetch and speak the weather of a city.
+        :param city: Name of the city.
+        """
+        weather_info = weather.get_weather(city)
+        self.tts(weather_info)
+        return weather_info
+

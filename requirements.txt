@@ -19,3 +19,4 @@ pywhatkit==5.4  # For WhatsApp messaging and YouTube automation
 pyautogui==0.9.54  # For GUI automation
 psutil==6.1.1  # For system monitoring
 pymongo==3.11.4  # For MongoDB integration
+pyjokes

@@ -1,7 +1,7 @@
 import sys
 import random
 from Tara import TaraAssistant
-from Tara.features.youtube_search import search_on_youtube
+# from Tara.features.youtube_search import search_on_youtube
 from Tara.features.google_search import search_on_google
 
 
@@ -119,6 +119,26 @@ def main():
 
             for news in news_list:
                 speak(news)
+
+        # tell random jokes 
+        elif "joke" in command or "tell me a joke" in command:
+            speak("Here's a joke for you.")
+            joke = tara.get_joke()
+            # print(joke)  
+            speak(joke)
+
+        # get the weather for any city asked from user
+        elif "weather" in command or "temperature" in command:
+            speak("Which city’s weather would you like to know?")
+            city = tara.mic_input()
+    
+            if city:
+                speak(f"Fetching weather details for {city}.")
+                weather_report = tara.tell_weather(city)
+                speak(weather_report)
+                # print(weather_report)  # Optional: Display in console
+            else:
+                speak("Sorry, I didn't catch the city name.")
 
 
 
